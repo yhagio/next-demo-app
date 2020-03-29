@@ -1,9 +1,9 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps };
   }
 
   render() {
@@ -11,7 +11,6 @@ class MyDocument extends Document {
       <Html lang='en'>
         <Head>
           <meta charSet='utf-8' />
-          <title>MyApp</title>
           <link
             href='https://fonts.googleapis.com/css?family=Heebo|Alfa+Slab+One&display=swap'
             rel='stylesheet'
@@ -22,8 +21,8 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

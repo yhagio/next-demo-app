@@ -38,7 +38,10 @@ const Login = () => {
 
   return (
     <div className='w-full sm:max-w-xs m-auto'>
-      <form onSubmit={handleSubmit} className="sm:w-full sm:mt-2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form
+        onSubmit={handleSubmit}
+        className='sm:w-full sm:mt-2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'
+      >
         <div className='mb-5'>
           <h2 className='text-2xl font-semibold'>Login</h2>
         </div>
@@ -65,20 +68,24 @@ const Login = () => {
           }
         />
 
-        <div className="flex items-center justify-between">
+        <div className='flex items-center justify-between'>
           <button
             type='submit'
-            className="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className='mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
           >
             Login
           </button>
 
           <Link href='/signup'>
-            <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Signup</a>
+            <a className='inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800'>
+              Signup
+            </a>
           </Link>
         </div>
 
-        {userData.error && <p className='mt-3 text-red-500 text-sm italic"'>Error: {userData.error}</p>}
+        {userData.error && (
+          <p className='mt-3 text-red-500 text-sm italic"'>Error: {userData.error}</p>
+        )}
       </form>
     </div>
   );

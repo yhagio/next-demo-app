@@ -13,7 +13,21 @@ export const redirectsTo = (ctx: any, redirectPath: string) => {
 };
 
 export const handleError = (error: IAxiosError): IApiError => {
-  const errObj: IApiError = error?.response?.data?.error;
+  const errObj: IApiError | any = error?.response?.data?.error;
+
+  if (!errObj) {
+    console.error(
+      `InternalServer error; statusCode 500; ${
+        (error as any).message || 'Unexpected error occured'
+      }.`
+    );
+    return {
+      name: 'InternalServer',
+      code: 500,
+      message: (error as any).message || 'Unexpected error occured'
+    };
+  }
+
   console.error(`${errObj.name} error; statusCode ${errObj.code}; ${errObj.message}.`);
   return errObj;
 };

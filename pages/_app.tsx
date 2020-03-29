@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import Head from 'next/head';
 import nextCookie from 'next-cookies';
 import jwt from 'jsonwebtoken';
 
@@ -9,10 +9,13 @@ import './styles.css';
 
 const MyApp = props => {
   return (
-    <Fragment>
+    <>
+      <Head>
+        <title>MyApp</title>
+      </Head>
       <NavBar {...props} />
       <props.Component {...props} />
-    </Fragment>
+    </>
   );
 };
 

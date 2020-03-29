@@ -17,28 +17,35 @@ export const NavBar = (props: IProps) => {
   }
 
   return (
-    <header className="bg-purple-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
-
-      <div className="flex items-center justify-between px-4 py-3 sm:p-0">
-        <Link href="/">
-          <h2 className="text-lg font-semibold text-white">
-            MyApp
-          </h2>
+    <header className='bg-purple-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3'>
+      <div className='flex items-center justify-between px-4 py-3 sm:p-0'>
+        <Link href='/'>
+          <h2 className='text-lg font-semibold text-white'>MyApp</h2>
         </Link>
-        <div className="sm:hidden">
-          <button type="button" className="block text-gray-500 hover:text-white focus:text-white focus:outline-none">
+        <div className='sm:hidden'>
+          <button
+            type='button'
+            className='block text-gray-500 hover:text-white focus:text-white focus:outline-none'
+          >
             Menu
           </button>
         </div>
       </div>
 
-      <nav className="block px-2 pt-2 pb-4 sm:flex sm:p-0">
+      <nav className='block px-2 pt-2 pb-4 sm:flex sm:p-0'>
         {user && (
           <React.Fragment>
-            <a className='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-' href='/account'>
+            <a
+              className='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-'
+              href='/account'
+            >
               Account
             </a>
-            <a className='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-' href='/logout' onClick={handleLogout}>
+            <a
+              className='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-'
+              href='/logout'
+              onClick={handleLogout}
+            >
               Logout
             </a>
           </React.Fragment>
@@ -46,20 +53,28 @@ export const NavBar = (props: IProps) => {
 
         {!user && (
           <React.Fragment>
-            <a className='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-' href='/login'>
+            <a
+              className='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-'
+              href='/login'
+            >
               Login
             </a>
-            <a className='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-' href='/signup'>
+            <a
+              className='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-'
+              href='/signup'
+            >
               Signup
             </a>
           </React.Fragment>
         )}
 
-        <a className='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-' href='/about'>
+        <a
+          className='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-'
+          href='/about'
+        >
           About
         </a>
       </nav>
-    </header >
-
+    </header>
   );
 };

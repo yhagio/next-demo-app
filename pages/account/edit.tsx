@@ -55,15 +55,22 @@ const Account = (props: IProps) => {
 
   return (
     <div className='w-full sm:max-w-xs m-auto'>
-      <form onSubmit={handleSubmit} className="sm:w-full sm:mt-2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form
+        onSubmit={handleSubmit}
+        className='sm:w-full sm:mt-2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'
+      >
         <div className='mb-5'>
           <h2 className='text-2xl font-semibold'>Edit Account</h2>
         </div>
 
-        <p><span className="font-semibold">User ID:</span> {user.id}</p>
-        <p><span className="font-semibold">Type:</span> {user.admin ? 'Admin' : 'Standard'}</p>
+        <p>
+          <span className='font-semibold'>User ID:</span> {user.id}
+        </p>
+        <p>
+          <span className='font-semibold'>Type:</span> {user.admin ? 'Admin' : 'Standard'}
+        </p>
 
-        <div className="mb-5"></div>
+        <div className='mb-5'></div>
 
         <FormInput
           label='*First Name'
@@ -98,16 +105,18 @@ const Account = (props: IProps) => {
           }
         />
 
-        <div className="flex items-center justify-between">
+        <div className='flex items-center justify-between'>
           <button
             type='submit'
-            className="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className='mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
           >
             Update
           </button>
         </div>
 
-        {userData.error && <p className='mt-3 text-red-500 text-sm italic"'>Error: {userData.error}</p>}
+        {userData.error && (
+          <p className='mt-3 text-red-500 text-sm italic"'>Error: {userData.error}</p>
+        )}
       </form>
     </div>
   );
