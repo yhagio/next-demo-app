@@ -9,7 +9,7 @@ const initialState = {
   email: '',
   password: '',
   error: ''
-}
+};
 
 const Login = () => {
   const [userData, setUserData] = useState(initialState);
@@ -24,8 +24,8 @@ const Login = () => {
     const url = `${BASE_URL}/auth/login`;
 
     try {
-      const result = await postReq(url, { email, password });
-      await login({ token: result.data.token });
+      const { data } = await postReq(url, { email, password });
+      await login({ token: data.token });
     } catch (error) {
       const err = handleError(error);
       setUserData(
@@ -37,10 +37,10 @@ const Login = () => {
   }
 
   return (
-    <div className='section max800'>
-      <form onSubmit={handleSubmit}>
-        <div className='field'>
-          <h2 className='is-size-2'>Login</h2>
+    <div className='w-full sm:max-w-xs m-auto'>
+      <form onSubmit={handleSubmit} className="sm:w-full sm:mt-2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className='mb-5'>
+          <h2 className='text-2xl font-semibold'>Login</h2>
         </div>
 
         <FormInput
@@ -65,16 +65,21 @@ const Login = () => {
           }
         />
 
-        <button type='submit' className='button is-link'>
-          Login
-        </button>
+        <div className="flex items-center justify-between">
+          <button
+            type='submit'
+            className="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Login
+          </button>
 
-        {userData.error && <p className='error'>Error: {userData.error}</p>}
+          <Link href='/signup'>
+            <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Signup</a>
+          </Link>
+        </div>
+
+        {userData.error && <p className='mt-3 text-red-500 text-sm italic"'>Error: {userData.error}</p>}
       </form>
-
-      <Link href='/forgot_password'>
-        <a>Forgot password</a>
-      </Link>
     </div>
   );
 };

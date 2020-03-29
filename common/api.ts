@@ -1,8 +1,8 @@
-import axios from 'axios'
+import axios from 'axios';
 import Router from 'next/router';
-import { IAxiosError, IApiError } from '../domain/error';
+import { IAxiosError, IApiError, IApiData } from '../domain/apiResponse';
 
-export const BASE_URL = "https://fastify-rest-graphql-api.herokuapp.com/api"
+export const BASE_URL = 'https://fastify-rest-graphql-api.herokuapp.com/api';
 // export const BASE_URL = "https://go-gin-postgres-api.herokuapp.com/api"
 // export const BASE_URL = "http://localhost:3001/api"
 
@@ -14,21 +14,21 @@ export const redirectsTo = (ctx: any, redirectPath: string) => {
 
 export const handleError = (error: IAxiosError): IApiError => {
   const errObj: IApiError = error?.response?.data?.error;
-  console.error(`${errObj.name} error; statusCode ${errObj.code}; ${errObj.message}.`)
+  console.error(`${errObj.name} error; statusCode ${errObj.code}; ${errObj.message}.`);
   return errObj;
-}
+};
 
-export const postReq = async (url: string, body: any): Promise<any> => {
+export const postReq = async (url: string, body: any): Promise<IApiData> => {
   const { data } = await axios.post(url, body);
   return data;
-}
+};
 
-export const getReq = async (url: string, params?: any): Promise<any> => {
+export const getReq = async (url: string, params?: any): Promise<IApiData> => {
   const { data } = await axios.get(url, params);
-  return data
-}
+  return data;
+};
 
-export const getReqWithToken = async (url: string, token: string): Promise<any> => {
+export const getReqWithToken = async (url: string, token: string): Promise<IApiData> => {
   const { data } = await axios.get(url, {
     withCredentials: true,
     headers: {
@@ -36,13 +36,13 @@ export const getReqWithToken = async (url: string, token: string): Promise<any> 
     }
   });
   return data;
-}
+};
 
 export const putReqWithToken = async (
   url: string,
   token: string,
   body: any
-): Promise<any> => {
+): Promise<IApiData> => {
   const { data } = await axios.put(url, body, {
     withCredentials: true,
     headers: {
@@ -50,4 +50,4 @@ export const putReqWithToken = async (
     }
   });
   return data;
-}
+};

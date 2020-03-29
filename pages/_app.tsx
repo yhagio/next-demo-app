@@ -1,31 +1,20 @@
 import { Fragment } from 'react';
-import Head from 'next/head';
 import nextCookie from 'next-cookies';
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
 
 import { NavBar } from '../components/navigation/nav';
 import { IUserInToken } from '../domain/user';
 
+import './styles.css';
 
-const MyApp = (props) => {
+const MyApp = props => {
   return (
     <Fragment>
-      <Head>
-        <meta charSet='utf-8' />
-        <title>MyApp</title>
-        <link
-          href='https://fonts.googleapis.com/css?family=Heebo|Alfa+Slab+One&display=swap'
-          rel='stylesheet'
-        ></link>
-      </Head>
       <NavBar {...props} />
-
-      <div className='container'>
-        <props.Component {...props} />
-      </div>
+      <props.Component {...props} />
     </Fragment>
-  )
-}
+  );
+};
 
 MyApp.getInitialProps = async ({ ctx, Component }) => {
   const { token } = nextCookie(ctx);
@@ -42,6 +31,6 @@ MyApp.getInitialProps = async ({ ctx, Component }) => {
     token,
     user
   };
-}
+};
 
-export default MyApp
+export default MyApp;

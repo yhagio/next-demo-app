@@ -6,27 +6,29 @@ import { IUser } from '../../domain/user';
 
 interface IProps {
   data: {
-    user: IUser
-  }
+    user: IUser;
+  };
 }
 
 const Account = (props: IProps) => {
   const user = props?.data?.user;
   if (!user) {
-    return <div>No Data</div>
+    return <div>No Data</div>;
   }
 
   return (
-    <div>
-      <h1>Account</h1>
-      <Link href='/account/edit'>Edit</Link>
-      <p>{user.id}</p>
-      <p>{user.first_name}</p>
-      <p>{user.last_name}</p>
-      <p>{user.email}</p>
-      <p>{user.admin ? 'Admin' : 'Standard'}</p>
+    <div className="max-w-lg bg-white rounded-lg shadow-md p-6 mt-3 m-auto">
+      <h1 className="text-3xl mb-3">Account</h1>
+      <a href='/account/edit' className="inline-block align-baseline font-bold text-lg text-blue-500 hover:text-blue-800">Edit</a>
+      <div className="mt-3">
+        <p><span className="font-semibold">User ID:</span> {user.id}</p>
+        <p><span className="font-semibold">First Name:</span> {user.first_name}</p>
+        <p><span className="font-semibold">Last Name:</span> {user.last_name}</p>
+        <p><span className="font-semibold">Email:</span> {user.email}</p>
+        <p><span className="font-semibold">Type:</span> {user.admin ? 'Admin' : 'Standard'}</p>
+      </div>
     </div>
-  )
+  );
 };
 
 Account.getInitialProps = async ctx => {

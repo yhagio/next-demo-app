@@ -1,11 +1,12 @@
+# Next
 
+- WIP
 
 TODOs:
 
-- [ ] Authentication
+- [x] Authentication
 - [ ] GraphQL
 - [ ] i18n
-- [ ] Types
 - [ ] Tests
 - [ ] Travis CI
 - [ ] Deployment (Now)
