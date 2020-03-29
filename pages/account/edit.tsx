@@ -29,14 +29,15 @@ const Account = (props: IProps) => {
     first_name: user.first_name,
     last_name: user.last_name,
     email: user.email,
-    error: ''
+    error: '',
+    loading: false
   });
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setUserData(Object.assign({}, userData, { error: '' }));
+    setUserData(Object.assign({}, userData, { error: '', loading: true }));
 
-    const { error, ...rest } = userData;
+    const { error, loading, ...rest } = userData;
 
     const url = `${BASE_URL}/account`;
 
@@ -47,7 +48,8 @@ const Account = (props: IProps) => {
       const err = handleError(error);
       setUserData(
         Object.assign({}, userData, {
-          error: err.message
+          error: err.message,
+          loading: false
         })
       );
     }
@@ -108,8 +110,11 @@ const Account = (props: IProps) => {
         <div className='flex items-center justify-between'>
           <button
             type='submit'
-            className='mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+            className={`mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
+              userData.loading ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           >
+            {userData.loading && <div className='loading'></div>}
             Update
           </button>
         </div>

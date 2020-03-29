@@ -10,7 +10,8 @@ const initialState = {
   last_name: '',
   email: '',
   password: '',
-  error: ''
+  error: '',
+  loading: false
 };
 
 const SignUp = () => {
@@ -18,7 +19,7 @@ const SignUp = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setUserData(Object.assign({}, userData, { error: '' }));
+    setUserData(Object.assign({}, userData, { error: '', loading: true }));
 
     const first_name = userData.first_name;
     const last_name = userData.last_name;
@@ -34,7 +35,8 @@ const SignUp = () => {
       const err = handleError(error);
       setUserData(
         Object.assign({}, userData, {
-          error: err.message
+          error: err.message,
+          loading: false
         })
       );
     }
@@ -97,8 +99,11 @@ const SignUp = () => {
         <div className='flex items-center justify-between'>
           <button
             type='submit'
-            className='mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+            className={`mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
+              userData.loading ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           >
+            {userData.loading && <div className='loading'></div>}
             Signup
           </button>
 

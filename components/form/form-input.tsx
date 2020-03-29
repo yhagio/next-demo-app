@@ -1,5 +1,3 @@
-import { Fragment } from 'react';
-
 export interface IFormInpuArgs {
   label: string;
   name: string;
@@ -17,7 +15,7 @@ export const FormInput = ({
   placeholder,
   onChange
 }: IFormInpuArgs) => (
-  <Fragment>
+  <>
     <label className='block text-gray-700 text-sm font-semibold mt-3' htmlFor={name}>
       {label}
     </label>
@@ -30,5 +28,5 @@ export const FormInput = ({
       onChange={onChange}
       value={value}
     />
-  </Fragment>
+  </>
 );
