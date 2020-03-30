@@ -10,6 +10,6 @@ export const login = ({ token }: { token: string }): void => {
 export const logout = (): void => {
   cookie.remove('token');
   // to support logging out from all windows
-  window.localStorage.setItem('logout', Date.now() as any);
+  // window.localStorage.setItem('logout', Date.now() as any);
   Router.push('/login');
 };

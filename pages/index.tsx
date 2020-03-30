@@ -1,8 +1,12 @@
+import withTranslations from '../hocs/withTranslations';
+import useTranslation from '../hooks/useTranslations';
+
 const Index = () => {
+  const { t } = useTranslation()
   return (
     <div className='m-auto mt-3 max-w-lg bg-white rounded overflow-hidden shadow-lg'>
       <div className='px-6 py-4'>
-        <div className='font-bold text-xl mb-2'>MyApp</div>
+        <div className='font-bold text-xl mb-2'>{t('myapp')}</div>
         <p className='text-gray-700 text-base'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia,
           nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
@@ -12,4 +16,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default withTranslations('common')(Index);

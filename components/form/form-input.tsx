@@ -1,4 +1,6 @@
-export interface IFormInpuArgs {
+import { FC } from 'react';
+
+export interface IFormInputProps {
   label: string;
   name: string;
   value: string | number;
@@ -7,26 +9,26 @@ export interface IFormInpuArgs {
   onChange: any;
 }
 
-export const FormInput = ({
+export const FormInput: FC<IFormInputProps> = ({
   label,
   name,
   value,
   inputType,
   placeholder,
   onChange
-}: IFormInpuArgs) => (
-  <>
-    <label className='block text-gray-700 text-sm font-semibold mt-3' htmlFor={name}>
-      {label}
-    </label>
-    <input
-      className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-      type={inputType}
-      name={name}
-      id={name}
-      placeholder={placeholder}
-      onChange={onChange}
-      value={value}
-    />
-  </>
-);
+}) => (
+    <>
+      <label className='block text-gray-700 text-sm font-semibold mt-3' htmlFor={name}>
+        {label}
+      </label>
+      <input
+        className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        type={inputType}
+        name={name}
+        id={name}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+      />
+    </>
+  );
