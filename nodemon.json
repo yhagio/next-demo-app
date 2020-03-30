@@ -1,0 +1,13 @@
+{
+  "watch": [
+    "./server.ts",
+    "./i18n.ts",
+    "pages/**/*.ts*",
+    "common/**/*.ts*",
+    "components/**/*.ts*",
+    "public/**/*.json*",
+    "domain/**/*.ts*"
+  ],
+  "exec": "ts-node --project tsconfig.server.json server.ts",
+  "ext": "js ts"
+}

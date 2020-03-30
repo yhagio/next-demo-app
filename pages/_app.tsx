@@ -1,9 +1,11 @@
 import Head from 'next/head';
+import App from 'next/app'
 import nextCookie from 'next-cookies';
 import jwt from 'jsonwebtoken';
 
-import { NavBar } from '../components/navigation/nav';
+import NavBar from '../components/navigation/nav';
 import { IUserInToken } from '../domain/user';
+import { appWithTranslation } from '../i18n';
 
 import './styles.css';
 
@@ -19,8 +21,11 @@ const MyApp = props => {
   );
 };
 
-MyApp.getInitialProps = async ({ ctx, Component }) => {
+MyApp.getInitialProps = async (appContext) => {
+  const { ctx, Component } = appContext
   const { token } = nextCookie(ctx);
+
+  const appProps = await App.getInitialProps(appContext);
 
   const componentProps =
     Component.getInitialProps && (await Component.getInitialProps(ctx));
@@ -30,10 +35,11 @@ MyApp.getInitialProps = async ({ ctx, Component }) => {
     user = undefined;
   }
   return {
+    ...appProps,
     ...componentProps,
     token,
     user
   };
 };
 
-export default MyApp;
+export default appWithTranslation(MyApp);

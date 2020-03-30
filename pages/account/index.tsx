@@ -55,7 +55,7 @@ Account.getInitialProps = async ctx => {
     if (!data) {
       return redirectsTo(ctx, '/');
     }
-    return { data };
+    return { data, namespacesRequired: ['nav'] };
   } catch (error) {
     handleError(error);
     return redirectsTo(ctx, '/');
