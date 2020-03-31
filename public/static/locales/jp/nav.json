@@ -1,5 +1,10 @@
 {
   "myapp": "MyApp",
+  "about": "概要",
   "account": "アカウント",
-  "logout": "ログアウト"
+  "logout": "ログアウト",
+  "signup": "サインアップ",
+  "login": "ログイン",
+  "menu": "メニュー",
+  "change-locale": "言語変更"
 }

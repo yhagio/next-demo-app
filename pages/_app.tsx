@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import App from 'next/app'
+import App from 'next/app';
 import nextCookie from 'next-cookies';
 import jwt from 'jsonwebtoken';
 
@@ -21,8 +21,8 @@ const MyApp = props => {
   );
 };
 
-MyApp.getInitialProps = async (appContext) => {
-  const { ctx, Component } = appContext
+MyApp.getInitialProps = async appContext => {
+  const { ctx, Component } = appContext;
   const { token } = nextCookie(ctx);
 
   const appProps = await App.getInitialProps(appContext);

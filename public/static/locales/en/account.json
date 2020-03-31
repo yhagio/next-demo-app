@@ -1,0 +1,13 @@
+{
+  "account": "Account",
+  "edit": "Edit",
+  "update": "Update",
+  "error": "Error",
+  "userID": "User ID",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "email": "Email",
+  "userType": "User Type",
+  "standard": "Standard",
+  "admin": "Admin"
+}

@@ -1,0 +1,13 @@
+{
+  "account": "アカウント",
+  "edit": "編集",
+  "update": "アップデート",
+  "error": "エラー",
+  "userID": "ユーザーID",
+  "firstName": "名前",
+  "lastName": "名字",
+  "email": "Eメール",
+  "userType": "ユーザータイプ",
+  "standard": "スタンダード",
+  "admin": "アドミン"
+}

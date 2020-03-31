@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { login } from '../common/auth';
 import { postReq, BASE_URL, handleError } from '../common/api';
 import { FormInput } from '../components/form/form-input';
+import { withTranslation } from '../i18n';
 
 const initialState = {
   first_name: '',
@@ -14,7 +15,7 @@ const initialState = {
   loading: false
 };
 
-const SignUp = () => {
+const SignUp = ({ t }) => {
   const [userData, setUserData] = useState(initialState);
 
   async function handleSubmit(event) {
@@ -49,14 +50,14 @@ const SignUp = () => {
         className='sm:w-full sm:mt-2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'
       >
         <div className='mb-5'>
-          <h2 className='text-2xl font-semibold'>Signup</h2>
+          <h2 className='text-2xl font-semibold'>{t('signup')}</h2>
         </div>
 
         <FormInput
-          label='*First Name'
+          label={`*${t('firstName')}`}
           name='first_name'
           inputType='text'
-          placeholder='First Name'
+          placeholder={t('firstName')}
           value={userData.first_name}
           onChange={event =>
             setUserData(Object.assign({}, userData, { first_name: event.target.value }))
@@ -64,10 +65,10 @@ const SignUp = () => {
         />
 
         <FormInput
-          label='*Last Name'
+          label={`*${t('lastName')}`}
           name='last_name'
           inputType='text'
-          placeholder='Last Name'
+          placeholder={t('lastName')}
           value={userData.last_name}
           onChange={event =>
             setUserData(Object.assign({}, userData, { last_name: event.target.value }))
@@ -75,10 +76,10 @@ const SignUp = () => {
         />
 
         <FormInput
-          label='*Email'
+          label={`*${t('email')}`}
           name='email'
           inputType='email'
-          placeholder='Your email'
+          placeholder={t('email')}
           value={userData.email}
           onChange={event =>
             setUserData(Object.assign({}, userData, { email: event.target.value }))
@@ -86,10 +87,10 @@ const SignUp = () => {
         />
 
         <FormInput
-          label='*Password'
+          label={`*${t('password')}`}
           name='password'
           inputType='password'
-          placeholder='Your password'
+          placeholder={t('password')}
           value={userData.password}
           onChange={event =>
             setUserData(Object.assign({}, userData, { password: event.target.value }))
@@ -104,22 +105,28 @@ const SignUp = () => {
             }`}
           >
             {userData.loading && <div className='loading'></div>}
-            Signup
+            {t('signup')}
           </button>
 
           <Link href='/login'>
             <a className='inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800'>
-              Login
+              {t('login')}
             </a>
           </Link>
         </div>
 
         {userData.error && (
-          <p className='mt-3 text-red-500 text-sm italic"'>Error: {userData.error}</p>
+          <p className='mt-3 text-red-500 text-sm italic"'>
+            {t('error')}: {userData.error}
+          </p>
         )}
       </form>
     </div>
   );
 };
 
-export default SignUp;
+SignUp.getInitialProps = async () => ({
+  namespacesRequired: ['signup', 'nav']
+});
+
+export default withTranslation('signup')(SignUp);

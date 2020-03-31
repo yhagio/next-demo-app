@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Router from 'next/router';
 import nextCookie from 'next-cookies';
+import { WithTranslation } from 'next-i18next';
 
 import {
   BASE_URL,
@@ -11,8 +12,9 @@ import {
 } from '../../common/api';
 import { IUser } from '../../domain/user';
 import { FormInput } from '../../components/form/form-input';
+import { withTranslation } from '../../i18n';
 
-interface IProps {
+interface IProps extends WithTranslation {
   data: {
     user: IUser;
   };
@@ -20,6 +22,7 @@ interface IProps {
 }
 
 const Account = (props: IProps) => {
+  const t = props.t;
   const user = props?.data?.user;
   if (!user) {
     return <div>No Data</div>;
@@ -62,23 +65,26 @@ const Account = (props: IProps) => {
         className='sm:w-full sm:mt-2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'
       >
         <div className='mb-5'>
-          <h2 className='text-2xl font-semibold'>Edit Account</h2>
+          <h2 className='text-2xl font-semibold'>
+            {t('edit')} {t('account')}
+          </h2>
         </div>
 
         <p>
-          <span className='font-semibold'>User ID:</span> {user.id}
+          <span className='font-semibold'>{t('userID')}:</span> {user.id}
         </p>
         <p>
-          <span className='font-semibold'>Type:</span> {user.admin ? 'Admin' : 'Standard'}
+          <span className='font-semibold'>{t('userType')}:</span>{' '}
+          {user.admin ? t('admin') : t('standard')}
         </p>
 
         <div className='mb-5'></div>
 
         <FormInput
-          label='*First Name'
+          label={`*${t('firstName')}`}
           name='first_name'
           inputType='text'
-          placeholder='First Name'
+          placeholder={t('firstName')}
           value={userData.first_name}
           onChange={event =>
             setUserData(Object.assign({}, userData, { first_name: event.target.value }))
@@ -86,10 +92,10 @@ const Account = (props: IProps) => {
         />
 
         <FormInput
-          label='*Last Name'
+          label={`*${t('lastName')}`}
           name='last_name'
           inputType='text'
-          placeholder='Last Name'
+          placeholder={t('lastName')}
           value={userData.last_name}
           onChange={event =>
             setUserData(Object.assign({}, userData, { last_name: event.target.value }))
@@ -97,16 +103,15 @@ const Account = (props: IProps) => {
         />
 
         <FormInput
-          label='*Email'
+          label={`*${t('email')}`}
           name='email'
           inputType='email'
-          placeholder='Your email'
+          placeholder={t('email')}
           value={userData.email}
           onChange={event =>
             setUserData(Object.assign({}, userData, { email: event.target.value }))
           }
         />
-
         <div className='flex items-center justify-between'>
           <button
             type='submit'
@@ -115,12 +120,14 @@ const Account = (props: IProps) => {
             }`}
           >
             {userData.loading && <div className='loading'></div>}
-            Update
+            {t('update')}
           </button>
         </div>
 
         {userData.error && (
-          <p className='mt-3 text-red-500 text-sm italic"'>Error: {userData.error}</p>
+          <p className='mt-3 text-red-500 text-sm italic"'>
+            {t('error')}: {userData.error}
+          </p>
         )}
       </form>
     </div>
@@ -136,11 +143,11 @@ Account.getInitialProps = async ctx => {
     if (!data) {
       return redirectsTo(ctx, '/');
     }
-    return { data, token };
+    return { data, token, namespacesRequired: ['account', 'nav'] };
   } catch (error) {
     handleError(error);
     return redirectsTo(ctx, '/');
   }
 };
 
-export default Account;
+export default withTranslation('account')(Account);
