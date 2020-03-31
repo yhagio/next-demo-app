@@ -5,12 +5,13 @@
 TODOs:
 
 - [x] Authentication
+- [x] MIT License
+- [x] Deployment (Now)
 - [ ] GraphQL
-- [ ] i18n
 - [ ] Tests
 - [ ] Travis CI
-- [ ] Deployment (Now)
-- [ ] MIT License
+
+- [x] i18n integration- See branch [i18n-next](https://github.com/yhagio/next-demo-app/tree/feature/i18n-next)
 
 ---
 
