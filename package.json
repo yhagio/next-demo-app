@@ -1,7 +1,9 @@
 {
-  "name": "demo-next-i18n-auth-starter",
+  "name": "next-demo-app",
   "version": "0.1.0",
   "private": true,
+  "author": "Yuichi Hagio",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
