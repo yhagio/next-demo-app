@@ -15,5 +15,5 @@ TODOs:
 - [ ] Tests
 - [ ] Travis CI
 
-- [] i18n integration- See branch [feature/i18n-next](https://github.com/yhagio/next-demo-app/tree/feature/i18n-next)
-- [] next-translate integration - See branch [feature/next-translate](https://github.com/yhagio/next-demo-app/tree/feature/next-translate)
+- [ ] i18n integration- See branch [feature/i18n-next](https://github.com/yhagio/next-demo-app/tree/feature/i18n-next)
+- [ ] next-translate integration - See branch [feature/next-translate](https://github.com/yhagio/next-demo-app/tree/feature/next-translate)
