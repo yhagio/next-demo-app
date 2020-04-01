@@ -4,7 +4,7 @@
     "js"
   ],
   "defaultLanguage": "en",
-  "currentPagesDir": "pages",
+  "currentPagesDir": "pages_",
   "pages": {
     "*": [
       "common",
