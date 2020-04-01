@@ -1,6 +1,6 @@
 # Next Typescript Demo App
 
-This repo is more like an my experiment 😊
+This repo is more like my experiment than demo lol 😊
 
 - WIP
 
