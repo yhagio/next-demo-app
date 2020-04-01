@@ -1,5 +1,7 @@
 # Next Typescript Demo App
 
+This repo is more like an my experiment 😊
+
 - WIP
 
 TODOs:
@@ -13,4 +15,5 @@ TODOs:
 - [ ] Tests
 - [ ] Travis CI
 
-- [x] i18n integration- See branch [i18n-next](https://github.com/yhagio/next-demo-app/tree/feature/i18n-next)
+- [] i18n integration- See branch [feature/i18n-next](https://github.com/yhagio/next-demo-app/tree/feature/i18n-next)
+- [] next-translate integration - See branch [feature/next-translate](https://github.com/yhagio/next-demo-app/tree/feature/next-translate)
