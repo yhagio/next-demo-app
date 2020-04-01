@@ -1,0 +1,9 @@
+{
+  "signup": "サインアップ",
+  "login": "ログイン",
+  "firstName": "名前",
+  "lastName": "名字",
+  "email": "Eメール",
+  "password": "パスワード",
+  "error": "エラー"
+}

@@ -1,0 +1,32 @@
+{
+  "allLanguages": [
+    "en",
+    "js"
+  ],
+  "defaultLanguage": "en",
+  "currentPagesDir": "pages",
+  "pages": {
+    "*": [
+      "common",
+      "nav"
+    ],
+    "/": [
+      "home"
+    ],
+    "/about": [
+      "about"
+    ],
+    "/account": [
+      "account"
+    ],
+    "/account/edit": [
+      "accunt"
+    ],
+    "/login": [
+      "signup"
+    ],
+    "/signup": [
+      "signup"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "myapp": "MyApp",
+  "about": "About",
+  "account": "Account",
+  "logout": "Logout",
+  "signup": "Signup",
+  "login": "Login",
+  "menu": "Menu",
+  "change-locale": "Change Language"
+}
